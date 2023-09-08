@@ -1,17 +1,10 @@
 <?php
+
+require_once ('./function.php');
+
 if (isset($_GET['length'])) {
     $passwordLength = intval($_GET['length']);
     $generatedPassword = generatePassword($passwordLength);
-}
-
-function generatePassword($length) {
-    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
-    $password = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomIndex = rand(0, strlen($characters) - 1);
-        $password .= $characters[$randomIndex];
-    }
-    return $password;
 }
 
 ?>
@@ -41,7 +34,7 @@ function generatePassword($length) {
         <p class="my-3 fw-bold">la tua password generata è:<span class="text-success"><?php echo " " . $generatedPassword; ?></span></p>
         <?php } ?>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
